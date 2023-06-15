@@ -165,7 +165,7 @@ If you like this project give a ⭐️.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse.
+I would like to thank Mr Lucas Erkna for his unbiased help to me in realising this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
