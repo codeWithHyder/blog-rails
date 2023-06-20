@@ -25,7 +25,7 @@ RSpec.describe Like, type: :model do
       Post.create(
         title: 'Test Post',
         text: 'This is a test post',
-        user:,
+        user: user,
         comment_counter: 0,
         likes_counter: 0
       )
@@ -33,8 +33,8 @@ RSpec.describe Like, type: :model do
 
     subject do
       Like.new(
-        user:,
-        post:
+        user: user,
+        post:post
       )
     end
 
