@@ -45,7 +45,7 @@ RSpec.describe Post, type: :model do
       Post.new(
         title: 'Test Post',
         text: 'This is a test post',
-        user: user,
+        user:,
         comment_counter: 0,
         likes_counter: 0
       )
@@ -56,7 +56,7 @@ RSpec.describe Post, type: :model do
         Comment.create(
           text: "This is the text for comment #{i}",
           post: subject,
-          user: user
+          user:
         )
       end
 
