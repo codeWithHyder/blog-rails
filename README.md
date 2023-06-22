@@ -72,10 +72,6 @@ The rails-blog-app is a classic example of a blog website. It is a fully functio
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## 🚀 Video Project Presentation <a name="video-project-presentation"></a>
-
-- NA
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
