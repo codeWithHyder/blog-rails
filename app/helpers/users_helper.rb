@@ -1,4 +1,4 @@
-  module UsersHelper
+module UsersHelper
   def render_user(user)
     content_tag(:li, class: 'user-container') do
       concat(content_tag(:div, class: 'user-profile-pic') do
@@ -33,4 +33,3 @@
     end
   end
 end
-
