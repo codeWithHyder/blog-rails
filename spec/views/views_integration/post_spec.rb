@@ -19,6 +19,10 @@ RSpec.describe Post, type: :system do
       visit user_posts_path(user.id)
       page.has_content?(user.posts_counter)
     end
+    it "I can see a post's title." do
+      visit user_posts_path(user.id)
+      page.has_content?(subject.title)
+    end
 
 end
 
