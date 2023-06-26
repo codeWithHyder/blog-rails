@@ -52,6 +52,10 @@ RSpec.describe Post, type: :system do
       visit user_post_path(user.id, subject.id)
       page.has_content?(user.name)
     end
+    it 'I can see how many comments it has.' do
+      visit user_post_path(user.id, subject.id)
+      page.has_content?(subject.comment_counter)
+    end
   end
 end
 
