@@ -11,5 +11,14 @@ RSpec.describe Post, type: :system do
       visit user_posts_path(user.id)
       page.has_css?('.img-fluid')
     end
+    it "I can see the user's username." do
+      visit user_posts_path(user.id)
+      page.has_content?(user.name)
+    end
+    it 'I can see the number of posts the user has written.' do
+      visit user_posts_path(user.id)
+      page.has_content?(user.posts_counter)
+    end
+
 end
 
