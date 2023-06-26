@@ -23,6 +23,15 @@ RSpec.describe Post, type: :system do
       visit user_posts_path(user.id)
       page.has_content?(subject.title)
     end
+    it "I can see some of the post's body." do
+      visit user_posts_path(user.id)
+      page.has_content?(subject.text)
+    end
+    it 'I can see the first comments on a post.' do
+      comment = Comment.new(user_id: user.id, post_id: subject.id, text: 'I like it')
+      visit user_posts_path(user.id)
+      page.has_content?(comment.text)
+    end
 
 end
 
