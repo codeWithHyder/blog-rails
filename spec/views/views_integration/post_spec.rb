@@ -36,6 +36,13 @@ RSpec.describe Post, type: :system do
       visit user_posts_path(user.id)
       page.has_content?(subject.comment_counter)
     end
+    it 'When I click on a post, it redirects me to that posts show page.' do
+      visit user_posts_path(user.id)
+      click_on 'First post'
+      visit user_post_path(user.id, subject.id)
+      page.has_content?(subject.title)
+    end
+  end
 
 end
 
