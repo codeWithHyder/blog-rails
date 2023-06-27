@@ -119,7 +119,11 @@ rails test:all
 - Twitter: [@Hyder](https://twitter.com/@hyder3512)
 - LinkedIn: [@Hyder](https://www.linkedin.com/in/ghulam-hyder-dar/)
 
+👤 **Zewdie Habtie**
 
+- GitHub: [@Zewdie Habtie](https://github.com/ZewdieMc)
+- Twitter: [@habtiezewdie](https://twitter.com/habtiezewdie)
+- LinkedIn: [@Zewdiehabtie](https://www.linkedin.com/in/zewdiehabtie/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
