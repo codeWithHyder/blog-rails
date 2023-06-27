@@ -10,8 +10,8 @@ class User < ApplicationRecord
     posts.order(created_at: :desc).limit(3)
   end
 
-  def user_has_liked(post_id)
-    likes.exists?(post_id:)
+  def user_has_liked(_post_id)
+    likes.exists?(post_id: user_id)
   end
 
   def remove_user_like(post_id)

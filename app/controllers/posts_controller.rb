@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @user = User.includes(posts: [:author, { comments: [:author] }]).find(params[:user_id])
+    @user = User.find(params[:user_id])
+    @posts = @user.posts.includes(:comments)
   end
 
   def new
@@ -11,7 +12,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(title: post_params[:title], text: post_params[:text], user_id: current_user[:id],
                      comment_counter: 0, likes_counter: 0)
-
     if @post.save
       redirect_to user_post_path(current_user, @post), notice: 'Post created successfully.'
     else
