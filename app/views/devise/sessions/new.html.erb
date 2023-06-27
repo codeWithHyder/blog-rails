@@ -1,3 +1,4 @@
+<div class="sign-in-container">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -13,7 +14,7 @@
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
-      <%= f.check_box :remember_me %>
+      <%= f.check_box :remember_me %> Remember me
       <%= f.label :remember_me %>
     </div>
   <% end %>
@@ -22,5 +23,6 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
