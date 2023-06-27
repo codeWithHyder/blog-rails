@@ -14,7 +14,7 @@ gem 'sprockets-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
-# use devise 
+# use devise
 gem 'devise'
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -77,5 +77,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-
