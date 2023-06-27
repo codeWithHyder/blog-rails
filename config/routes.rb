@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :logins
   get 'likes/create'
   get 'comments/new'
   get 'comments/create'
