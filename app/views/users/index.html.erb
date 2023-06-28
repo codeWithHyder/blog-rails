@@ -1,20 +1,25 @@
-<h1>List of all the users</h1>
-<main id="home" class="page">
-  <h1>Users</h1>
-  <ul class="users-list">
-    <% @users.each do |user| %>
-      <li class="user-container">
-        <div class="user-profile-pic">
-          <%= link_to user_path(user) do %>
-            <img src="<%= user.photo %>" alt="profile-picture">
-          <% end %>
-        </div>
-        <div class="user-info">
-          <h3><%= link_to user.name, user_path(user) %></h3>
-          <p class="posts-counter">Number of posts: <%= user.posts_counter || 0 %></p>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</main>
+<div id="home" class="page">
+  <div id="user-page">
+    <div class="btn-container">
+      <%= link_to raw('<i class="fas fa-house"></i>'), root_path %>
+    </div>
+        <div class="signout-container">
+  <%= link_to "Sign out", root_path, method: :delete, class: "signout-link" %>
+</div>
+    <h1>Users <i class="fa-solid fa-users"></i></h1>
+
+
+    <ul class="users-list">
+      <%= @users.map { |user| render_user(user) }.join.html_safe %>
+    </ul>
+
+
+
+
+
+
+  </div>
+</div>
+
+
 

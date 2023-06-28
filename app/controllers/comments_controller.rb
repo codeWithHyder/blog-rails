@@ -1,10 +1,14 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
+
   def new
     @comment = Comment.new
   end
 
   def create
     @comment = Comment.new(text: comment_params[:text], post_id: params[:post_id], user_id: current_user[:id])
+
 
     if @comment.save
       redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id]),
@@ -16,12 +20,14 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    authorize! :destroy, @comment
     @comment.destroy
-    redirect_to post_path(@comment.post), notice: 'Comment deleted successfully.'
+    redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id]),
+                notice: 'Comment deleted successfully'
   end
 
+
   private
+
 
   def comment_params
     params.require(:comment).permit(:text)

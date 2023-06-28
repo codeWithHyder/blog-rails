@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
   devise_for :logins
-  get 'likes/create'
-  get 'comments/new'
-  get 'comments/create'
+  devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+    get 'sign_up', to: 'devise/registrations#new'
+  end
+
+
+  devise_for :logins, skip: :all
   root "users#index"
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :new, :show] do
-      resources :comments, only: [:new, :create]
+    resources :posts, only: [:index, :new, :show, :destroy] do
+      resources :comments, only: [:new, :create, :destroy]
       resources :likes, only: [:create]
     end
   end
   post "users/:user_id/posts", to: "posts#create", as: :user_create_post
 end
+
+
