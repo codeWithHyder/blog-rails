@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments)
@@ -11,8 +12,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: post_params[:title], text: post_params[:text], user_id: current_user[:id],
-                     comment_counter: 0, likes_counter: 0)
+    @post = Post.new(post_params.merge(user_id: current_user.id, comment_counter: 0, likes_counter: 0))
+
     if @post.save
       redirect_to user_post_path(current_user, @post), notice: 'Post created successfully.'
     else
@@ -28,6 +29,14 @@ class PostsController < ApplicationController
 
   def include_user
     @user = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(params[:user_id])
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    authorize! :destroy, @post
+
+    @post.destroy
+    redirect_to posts_path, notice: 'Post deleted successfully.'
   end
 
   private
