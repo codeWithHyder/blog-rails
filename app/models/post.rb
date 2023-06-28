@@ -11,7 +11,8 @@ class Post < ApplicationRecord
   def post_count_updater
     user.update(posts_counter: user.posts.count)
   end
+
   def recent_comments
     comments.includes(:user).order(created_at: :desc).limit(5)
   end
-end 
+end
