@@ -54,6 +54,7 @@ main {
   width: 100px;
   height: 100px;
   overflow: hidden;
+  border-radius: 1rem;
 }
 
 .user-profile-pic img {
