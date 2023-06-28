@@ -3,19 +3,16 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user
-    can :read, Post, public: true
 
-    return unless user.present? # additional permissions for logged in users (they can read their own posts)
+    if user.admin?
+      can :manage, :all
+    else
+      can :read, Post
+      can :create, Post if user.signed_in?
+      can :update, Post, user_id: user.id
+      can :destroy, Post, user_id: user.id
 
-    can(:read, Post, user:)
-    can :destroy, Post, author_id: user.id
-    can :destroy, Comment, author_id: user.id
-    can :destroy, Post, id: user.posts.pluck(:id) # Grant permission to destroy posts that belong to the user
-
-    return unless user.admin? # additional permissions for administrators
-
-    can :read, Post
-    can :destroy, Post
-    can :destroy, Comment
+      can :destroy, Comment, user_id: user.id
+    end
   end
 end

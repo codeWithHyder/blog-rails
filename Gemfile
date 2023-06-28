@@ -14,7 +14,6 @@ gem 'sprockets-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
-
 # Use cancan for authorization
 gem 'cancancan'
 
