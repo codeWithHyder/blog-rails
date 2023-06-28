@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
 
-
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -15,7 +14,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(title: post_params[:title], text: post_params[:text], user_id: current_user[:id],
                      comment_counter: 0, likes_counter: 0)
-
 
     if @post.save
       redirect_to user_post_path(current_user, @post), notice: 'Post created successfully.'
@@ -40,9 +38,7 @@ class PostsController < ApplicationController
     @user = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(params[:user_id])
   end
 
-
   private
-
 
   def set_post
     @post = Post.find(params[:id])

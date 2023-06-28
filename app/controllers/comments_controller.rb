@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
 
-
   def new
     @comment = Comment.new
   end
@@ -25,9 +24,7 @@ class CommentsController < ApplicationController
                 notice: 'Comment deleted successfully'
   end
 
-
   private
-
 
   def comment_params
     params.require(:comment).permit(:text)
