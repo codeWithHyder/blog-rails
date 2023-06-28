@@ -431,7 +431,7 @@ li.comment-box form .del-post-btn #delete {
 }
 
 li.comment-box form .del-post-btn #delete:hover {
-  color: red;
+  color: rgb(209, 108, 108);
   font-weight: bolder;
 }
 
