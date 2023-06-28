@@ -7,9 +7,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :likes
 
-
   validates :name, presence: true
-
 
   def recent_post
     posts.order(created_at: :desc).limit(3)
