@@ -18,7 +18,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  padding-left: 5rem;
+  padding-left: 4rem;
 }
 
 h1 {
@@ -434,10 +434,6 @@ li.comment-box form .del-post-btn #delete:hover {
   color: rgb(209, 108, 108);
   font-weight: bolder;
 }
-
-/* like and comment styles end */
-
-/* sign out button */
 
 .signout-container {
   text-align: center;
