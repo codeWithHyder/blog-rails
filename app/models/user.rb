@@ -13,15 +13,15 @@ class User < ApplicationRecord
     posts.order(created_at: :desc).limit(3)
   end
 
-  def user_has_liked?(post, user)
-    likes.exists?(post:, user:)
+  def user_has_liked?(new_post_id)
+    likes.exists?(post_id: new_post_id)
   end
 
-  def remove_user_like(post, user)
-    likes.find_by(post:, user:).destroy
+  def remove_user_like(new_post_id)
+    likes.find_by(post_id: new_post_id).destroy
   end
 
-  def add_user_like(post, user)
-    likes.create(post:, user:)
+  def add_user_like(new_post_id)
+    likes.create(post_id: new_post_id)
   end
 end
