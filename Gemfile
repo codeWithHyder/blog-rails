@@ -20,7 +20,7 @@ gem 'cancancan'
 # use devise
 gem 'devise'
 
-#rswag
+# rswag
 gem 'rswag'
 
 # Use the Puma web server [https://github.com/puma/puma]
